@@ -1,0 +1,59 @@
+<view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+            <view href="info.html" class="weui-media-box weui-media-box_appmsg center"> 
+                <navigator url="../reg/reg" hover-class="navigator-hover">会员注册</navigator>              
+                <block wx:if="{{hasUserInfo === false}}">
+                    <navigator url="../reg/reg" hover-class="navigator-hover">会员注册</navigator>
+		        </block>
+		        <block wx:if="{{hasUserInfo === true}}">
+                    <view class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+                    </view>
+                    <view class="weui-media-box__bd">
+                        <view class="weui-media-box__title">{{userInfo.nickName}}</view>
+                        <view class="weui-media-box__desc">初级会员</view>
+                    </view>
+		        </block>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_access" href="info.html">
+                <view class="weui-cell__bd weui-cell_primary">我的信息</view>
+                <view class="weui-cell__ft"></view>
+            </view>
+            <view class="weui-cell weui-cell_access" href="myTag.html">
+                <view class="weui-cell__bd weui-cell_primary">我的标签</view>
+                <view class="weui-cell__ft"></view>
+            </view>
+            <view class="weui-cell weui-cell_access" href="publishList.html">
+                <view class="weui-cell__bd weui-cell_primary">我的足迹</view>
+                <view class="weui-cell__ft"></view>
+            </view>
+            <view class="weui-cell weui-cell_access" href="realRecommendList.html">
+                <view class="weui-cell__bd weui-cell_primary">我的实时</view>
+                <view class="weui-cell__ft"></view>
+            </view>
+            <navigator url="../inviteFriend/inviteFriend" class="weui-cell weui-cell_access" href="inviteFriend.html">
+                <view class="weui-cell__bd weui-cell_primary">我的邀请</view>
+                <view class="weui-cell__ft"></view>
+            </navigator>
+        </view>            
+    </view>
+</view>
+<view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd weui-cell_primary">
+                    <view>联系客服</view>
+                </view>
+                <view class="weui-cell__ft">010-888888888</view>
+            </view>
+        </view>
+    </view>
+</view>

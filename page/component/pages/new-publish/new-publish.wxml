@@ -1,0 +1,80 @@
+<view class="weui-fixed-wrap">
+	          
+    <view class="weui-cells__title">请正确填写提问内容</view>
+	<view class="weui-cells weui-cells_form kind-list">  
+        <view class="kind-list-item"> 
+			<view class="kind-list-item-hd">
+				<view class="kind-list-text">标题</view>
+                <view class="kind-list-bd">
+                    <input class="weui-input" type="text" maxlength="14" placeholder="请输入提问标题" name="title"/>
+                </view>				
+			</view>
+		</view>
+        <view class="kind-list-item"> 
+            <view class="kind-list-item-hd">
+                <view class="kind-list-text">内容</view>
+                <view class="kind-list-bd">
+                    <textarea class="weui-textarea js-content" name="demandContent" placeholder="请输入文本" rows="10" auto-height=""></textarea>
+                </view>
+            </view>
+        </view>
+        <view class="kind-list-item"> 
+            <view class="kind-list-item-hd">
+                <view class="kind-list-text">分类</view>
+                <view class="kind-list-bd">
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class="weui-input">{{array[index]}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="kind-list-item"> 
+            <view class="kind-list-item-hd">
+                <view class="kind-list-text">拟佣金</view>
+                <view class="kind-list-bd">
+                    <input class="weui-input" type="number" value="" placeholder="请输入拟佣金" name="commissionNumber"/>
+                </view>
+            </view>
+        </view>
+        <view class="kind-list-item"> 
+            <view class="kind-list-item-hd">
+                <view class="kind-list-text">时效性</view>
+                <view class="kind-list-bd">
+                    <input class="weui-input" type="number" value="" placeholder="最长为24H" name="expire"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">附件</view>
+                        <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__files">
+                        <block wx:for="{{imageList}}" wx:for-item="image" wx:key="id">
+                            <view class="weui-uploader__file">
+                                <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                            </view>
+                        </block>
+                        </view>
+                        <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>   
+    </view>
+        
+  
+    <view class="weui-form ">
+    	<radio checked="" value="r1"></radio> 免责通告
+    </view>
+    <view class="weui-form weui-cell_warn"></view>
+
+</view>
+<view class="weui-btn-fixed">
+	<button type="primary" bindtap="tapName">提交</button>
+</view>

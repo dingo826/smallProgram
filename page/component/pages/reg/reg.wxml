@@ -1,0 +1,27 @@
+<view class="weui-cells">
+	<view class="weui-cell center">
+        <view class="weui-cell__hd">
+            <text class="weui-label">您的朋友</text>
+        </view>
+        <view class="weui-cell__bd">                    
+            如摄 a13233241343
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_vcode center">
+        <view class="weui-cell__hd">
+            <text class="weui-label">手机号码</text>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" type="tel" pattern="[0-9]*" placeholder="请输入手机号"/>
+        </view>
+        <view class="weui-cell__ft">
+            <button class="weui-vcode-btn">获取验证码</button>
+        </view>
+    </view>
+    <view class="weui-cell">
+        <view class="weui-cell__hd"><text class="weui-label">验证码</text></view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入验证码"/>
+        </view>
+    </view>
+</view>	

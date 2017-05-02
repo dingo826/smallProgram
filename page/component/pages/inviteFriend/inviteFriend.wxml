@@ -1,0 +1,26 @@
+<view>
+    <view>我的邀请码：{{codeName}}</view>
+    <view>
+        <image src="{{codeName}}" />
+    </view>
+    <text selectable="true">http://reg.html</text>
+   
+</view>
+<view class="weui-panel">
+	<view class="weui-panel__hd">您已邀请5位好友，只有5位名额了</view>
+    <view class="weui-panel__bd js_wrapper">    	
+        <navigator url="friendView.html" class="weui-media-box weui-media-box_appmsg center">
+            <view class="weui-media-box__hd">
+                <image class="weui-media-box__thumb" src="../../../../image/user.jpg" alt="" />
+            </view>
+            <view class="weui-media-box__bd">
+                <view class="weui-media-box__title">                     
+                    asdf 2017-08-23
+                </view>
+                <p class="weui-media-box__desc">
+                    所在城市：浙江杭州
+                </p>
+            </view>
+        </navigator> 
+    </view>
+</view>
