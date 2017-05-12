@@ -1,0 +1,63 @@
+<view class="page page-chat-dialogue">
+    <view class="chat-loading-pull-down refresh" id="pullDown">
+            <view class="img-container">
+                <image src="../../../../image/guide-contact/loading4.gif" alt=""/>
+            </view>
+            <view>
+                请稍等, 消息正在加载中哦！
+            </view>
+        </view>
+    <view class="chat-scroll-wrapper">
+        <ul class="chat-scroller"></ul>
+        <view class="chat-loading-pull-down refresh" id="pullDown">
+            <span class="img-container">
+                <img src="../images/loading4.gif" alt=""/>
+            </span>
+            <span>
+                请稍等, 消息正在加载中哦！
+            </span>
+        </view>
+        <view class="chat-loading-pull-down refresh" id="pullUp">
+            <span class="img-container">
+                <img src="../images/loading4.gif" alt=""/>
+            </span>
+            <span>
+                请稍等, 消息正在加载中哦！
+            </span>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="chat-nav">
+            <view class="chat-input">
+                <input type="text" id="input"/>
+            </view>
+            <view class="chat-btn-container">
+                <!--view class="chat-btn chat-btn-expression span">
+                    <image src="../../../../image/guide-contact/chat-btn-01.png" class="img" alt=""/>
+                </view-->
+                <view class="chat-btn chat-btn-add span">
+                <!-- 增加 -->
+                    <image data-type="img" src="../../../../image/guide-contact/chat-btn-02.png" class="img" alt=""/>
+                    <view data-type="em" class="em" class="chat-send hide">发送</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="tab-content footer-tab-content">
+        <view class="tab-content-item swiper-container">
+            <view class="swiper-wrapper"></view>
+            <view class="swiper-pagination"></view>
+        </view>
+        <view class="tab-content-item wx-func-container">
+            
+            <view class="wx-pick-img">
+                <image src="../../../../image/guide-contact/dialogue_13.jpg"/>
+                <view>选择图片</view>
+            </view>
+            
+        </view>
+    </view>
+    <view class="cc-cover"></view>
+    <view class="cc-modal"></view>
+</view>

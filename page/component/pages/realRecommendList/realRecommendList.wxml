@@ -1,0 +1,37 @@
+<view class="container">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
+        class="list" bindscrolltolower="bindDownLoad">
+        <view wx:if="{{list.length == 0}}" class="body-view">
+        暂无消息
+        </view>
+        <view class="weui-panel"  wx:for="{{list}}" wx:for-item="item" wx:key="{{id}}" >
+            <view class="weui-panel__bd">
+                <view class="weui-media-box">
+                    <view class="weui-media-box__title">
+                        {{item.title}} 
+                        <block wx:if="{{item.commissionNumber != 0}}">
+                        <view class="price">{{item.commissionNumber}}元</view>
+                        </block>
+                    </view>
+                    <view class="weui-media-box__time">{{item.createTime}}</view>
+                    <view class="weui-media-box__desc">{{item.demandContent}}
+                    </view>
+                </view>
+            </view>
+            <view class="weui-panel__br"><view></view></view>
+            <view class="weui-panel__ft btn__ft">    
+                <navigator url="../publishView/publishView?id={{item.id}}" class="navigator-btn">
+                    <button type="primary" class="mini-btn" size="mini">查看推荐内容</button>
+                    <block wx:if="{{item.recommendCount != 0}}">
+                        <span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{item.recommendCount}}</span>
+                    </block>
+                </navigator> 
+            </view>
+        </view>
+    </scroll-view>
+    <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+</view>

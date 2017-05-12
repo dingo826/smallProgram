@@ -1,0 +1,114 @@
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-id="10" bindtap="swichNav">全部</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-id="2" bindtap="swichNav">已完成</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" data-id="0" bindtap="swichNav">已取消</view>  
+</view> 
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+   
+    <swiper-item>  
+    	<view wx:if="{{dataList.length == 0}}" class="body-view">
+	        暂无消息
+	        </view> 
+      	<scroll-view scroll-y="true" class="swiper-item" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}"> 
+      		
+			<block wx:for="{{dataList}}" wx:for-item="item" wx:key="id" >  
+				<view class="weui-panel">
+				    <view class="weui-panel__bd">
+				        <view class="weui-media-box">
+				            <view class="weui-media-box__title">
+				                {{item.title}} 
+				                <block wx:if="{{item.commissionNumber != 0}}">
+				                <view class="price">{{item.commissionNumber}}元</view>
+				                </block>
+				            </view>
+				            <view class="weui-media-box__time">{{item.createTime}}</view>
+				            <view class="weui-media-box__desc">{{item.demandContent}}
+				            </view>
+				        </view>
+				    </view>
+				    <view class="weui-panel__br"><view></view></view>
+				    <view class="weui-panel__ft btn__ft">				        
+				        <block wx:if="{{item.status == 1}}">	
+				        	<button type="default" class="mini-btn" size="mini" data-id="{{item.id}}" bindtap="cancleFn">取消问题</button>
+				        </block>
+				        <navigator url="../publishView/publishView?id={{item.id}}" class="navigator-btn">
+				            <button type="primary" class="mini-btn" size="mini">进入问题详情</button>
+				            <block wx:if="{{item.recommendCount != 0}}">
+				            	<span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{item.recommendCount}}</span>
+				            </block>
+				        </navigator> 
+				    </view>
+				</view>
+			</block>  
+		</scroll-view>   
+    </swiper-item>  
+    <!-- 我是呵呵 -->  
+    <swiper-item>  
+    	<view wx:if="{{dataList.length == 0}}" class="body-view">
+	        暂无消息
+	        </view> 
+      	<scroll-view scroll-y="true" class="swiper-item">  
+			<block wx:for="{{dataList}}" wx:for-item="item" wx:key="id" >  
+				<view class="weui-panel">
+				    <view class="weui-panel__bd">
+				        <view class="weui-media-box">
+				            <view class="weui-media-box__title">
+				                {{item.title}} 
+				                <block wx:if="{{item.commissionNumber != 0}}">
+				                <view class="price">{{item.commissionNumber}}元</view>
+				                </block>
+				            </view>
+				            <view class="weui-media-box__time">{{item.createTime}}</view>
+				            <view class="weui-media-box__desc">{{item.demandContent}}
+				            </view>
+				        </view>
+				    </view>
+				    <view class="weui-panel__br"><view></view></view>
+				    <view class="weui-panel__ft btn__ft">
+				        <navigator url="../publishView/publishView?id={{item.id}}" class="navigator-btn">
+				            <button type="primary" class="mini-btn" size="mini">进入问题详情</button>
+				            <block wx:if="{{item.recommendCount != 0}}">
+				            	<span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{item.recommendCount}}</span>
+				            </block>
+				        </navigator> 
+				    </view>
+				</view>
+			</block>  
+		</scroll-view>   
+    </swiper-item>     
+    <!-- 我是嘿嘿 -->
+    <swiper-item>  
+    	<view wx:if="{{dataList.length == 0}}" class="body-view">
+	        暂无消息
+	        </view> 
+      	<scroll-view scroll-y="true" class="swiper-item">  
+
+			<block wx:for="{{dataList}}" wx:for-item="item" wx:key="id" >  
+				<view class="weui-panel">
+				    <view class="weui-panel__bd">
+				        <view class="weui-media-box">				            
+				            <view class="weui-media-box__title">
+				                {{item.title}} 
+				                <block wx:if="{{item.commissionNumber != 0}}">
+				                <view class="price">{{item.commissionNumber}}元</view>
+				                </block>
+				            </view>
+				            <view class="weui-media-box__time">{{item.createTime}}</view>
+				            <view class="weui-media-box__desc">{{item.demandContent}}
+				            </view>
+				        </view>
+				    </view>
+				    <view class="weui-panel__br"><view></view></view>
+				    <view class="weui-panel__ft btn__ft">
+				        <navigator url="../publishView/publishView?id={{item.id}}" class="navigator-btn">
+				            <button type="primary" class="mini-btn" size="mini">进入问题详情</button>
+				            <block wx:if="{{item.recommendCount != 0}}">
+				            	<span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">{{item.recommendCount}}</span>
+				            </block>
+				        </navigator> 
+				    </view>
+				</view>
+			</block>  
+		</scroll-view>   
+    </swiper-item>  
+</swiper> 

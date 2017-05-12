@@ -1,0 +1,31 @@
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-id="10" bindtap="swichNav">我的标签</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-id="2" bindtap="swichNav">好友印象</view>  
+</view> 
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">  
+    <swiper-item>  
+	    <import src="../moudleTagAdd/moudleTagAdd.wxml"/>
+    	<template is="moudleTagAdd" data="{{myTagObj}}"/> 
+	    <import src="../moudleTagList/moudleTagList.wxml"/>
+	    <template is="moudleTagList" data="{{myTagObj}}"/>
+    </swiper-item>  
+    <swiper-item>  
+      	<view class=" weui-panel weui-media-box" wx:if="{{impressionObj.impressionArr}}">
+      		<block  wx:for="{{impressionObj.impressionArr}}" wx:for-item="item" wx:key="id">
+                <button size="mini" class="btn-mr" data-item="{{item.impressionName}}" disabled="">
+                    {{item.impressionName}}   {{item.impressionCount}}
+                </button>
+            </block>	        
+	    </view>
+	    <view class=" weui-panel weui-media-box" wx:if="{{!impressionObj.impressionArr}}">
+	        对不起，暂无收到好友给您的印象。           
+	    </view>
+		<view class="weui-panel" wx:if="{{impressionObj.impression_descriptionArr}}">
+            <view class="weui-panel__hd">好友给我贴的标签列表</view>            
+            <view class="weui-cell" wx:for="{{impressionObj.impression_descriptionArr}}" wx:for-item="item" wx:key="id">
+                {{item.friendName}}  <time>　{{item.day}} 天前描述了我:</time>{{item.impressionName}} 
+            </view>                    
+        </view> 
+    </swiper-item>   
+</swiper> 

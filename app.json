@@ -37,7 +37,20 @@
     "page/component/pages/my/my",
     "page/component/pages/reg/reg",
     "page/component/pages/inviteFriend/inviteFriend",
-
+    "page/component/pages/publishList/publishList",
+    "page/component/pages/publishView/publishView",
+    "page/component/pages/recommendList/recommendList",
+    "page/component/pages/realRecommendList/realRecommendList",
+    "page/component/pages/info/info",
+    "page/component/pages/myTag/myTag",
+    "page/component/pages/moudleTagList/moudleTagList",  
+    "page/component/pages/moudleTagAdd/moudleTagAdd",  
+    "page/component/pages/uploadPic/uploadPic",
+    "page/component/pages/friendsList/friendsList",
+    "page/component/pages/friendDetail/friendDetail",
+    "page/component/pages/friendView/friendView",
+    "page/component/pages/messageList/messageList",
+    "page/component/pages/message/message",
     "page/API/index",
 
     "page/API/pages/login/login",
@@ -95,22 +108,22 @@
     "selectedColor": "#3cc51f",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list": [{
-      "pagePath": "page/component/pages/new-publish/new-publish",
+    "list": [ {
+      "pagePath": "page/component/index",
       "iconPath": "image/icon_component.png",
       "selectedIconPath": "image/icon_component_HL.png",
       "text": "提问题"
-    }, {
-      "pagePath": "page/component/index",
+    },{
+      "pagePath": "page/component/pages/realRecommendList/realRecommendList",
       "iconPath": "image/icon_API.png",
       "selectedIconPath": "image/icon_API_HL.png",
-      "text": "组件"
-    }, {
-      "pagePath": "page/API/index",
+      "text": "实时"
+    },{
+      "pagePath": "page/component/pages/messageList/messageList",
       "iconPath": "image/icon_API.png",
       "selectedIconPath": "image/icon_API_HL.png",
-      "text": "接口"
-    }, {
+      "text": "聊天列表"
+    },{
       "pagePath": "page/component/pages/my/my",
       "iconPath": "image/icon_API.png",
       "selectedIconPath": "image/icon_API_HL.png",

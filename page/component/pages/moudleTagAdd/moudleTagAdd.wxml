@@ -1,0 +1,24 @@
+<template name="moudleTagAdd"> 
+    <view class=" weui-panel weui-media-box" wx:if="{{myTagObj.tags}}">
+    
+        <block  wx:for="{{myTagObj.tags}}" wx:for-item="item" wx:key="id">
+            <button size="minix" class="btn-mr" data-tagName="{{item.tagName}}" data-id="{{item.id}}" disabled="" bindtap="tagChangeRemoveEvent">
+                {{item.tagName}}
+            </button>
+        </block>            
+    </view>
+    <view class=" weui-panel weui-media-box" wx:if="{{!myTagObj.tags}}">
+        对不起，您还没有贴任何标签。          
+    </view>
+    <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">{{myTagObj.title}}</view>
+        <view class="weui-cell weui-cell_vcode center">
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="text" placeholder="请输入标签" bindblur="tagInputEvent" value="{{myTagObj.tagVal}}"/>
+            </view>
+            <view class="weui-cell__ft">
+                <button class="weui-vcode-btn mini-btn" size="mini" catchtap="addTagEvent">添加</button>
+            </view>
+        </view>
+    </view>
+</template>

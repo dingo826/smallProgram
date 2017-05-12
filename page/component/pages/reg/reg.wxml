@@ -1,27 +1,81 @@
-<view class="weui-cells">
-	<view class="weui-cell center">
-        <view class="weui-cell__hd">
-            <text class="weui-label">您的朋友</text>
+<form catchsubmit="formSubmit" catchreset="formReset">  
+    <view class="weui-cells">
+    	<view class="weui-cell center" wx:if="{{isVerify === true}}">
+            <view class="weui-cell__hd">
+                <text class="weui-label">您的朋友</text>
+            </view>
+            <view class="weui-cell__bd">                    
+                如摄 a13233241343
+            </view>
         </view>
-        <view class="weui-cell__bd">                    
-            如摄 a13233241343
+        <view class="weui-cell center" wx:if="{{isVerify === false}}">
+            <view class="weui-cell__hd">
+                <text class="weui-label">邀请码</text>
+            </view>
+            <view class="weui-cell__bd">              
+                <input class="weui-input" type="tel" pattern="[0-9]*" placeholder="请输入邀请码" name="inviteCode" bindblur="inviteInputEvent"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_vcode center">
+            <view class="weui-cell__hd">
+                <text class="weui-label">手机号码</text>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="tel" pattern="[0-9]*" placeholder="请输入手机号" name="phoneNumber" bindblur="mobileInputEvent"/>
+            </view>
+            <view class="weui-cell__ft">
+                <button class="weui-vcode-btn mini-btn" size="mini" bindtap="verifyCodeEvent" disabled="{{buttonDisable}}">{{verifyCodeTime}}</button>
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__hd"><text class="weui-label">验证码</text></view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入验证码" name="verifyNumber"  bindblur="verifyNumberEvent" />
+            </view>
+        </view>
+        <!--view class="weui-cell">
+            <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                    <view class="weui-uploader__hd">
+                        <view class="weui-uploader__title">提交收款码</view>
+                    </view>
+                    <view class="weui-uploader__bd">
+                        <view class="weui-uploader__files">
+                        <block wx:for="{{imageList}}" wx:for-item="image" wx:key="id" >
+                            <view class="weui-uploader__file">
+                                <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage" name="attachment"></image>
+                            </view>
+                        </block>
+                        </view>
+                        <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view--> 
+    </view>	
+    <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">请描述对我的印象</view>
+        <view class="weui-cell weui-cell_vcode center">
+            <view class="weui-cell__bd">
+                <input class="weui-input" type="tag" placeholder="请输入标签" bindblur="tagInputEvent" value="{{tagVal}}"/>
+            </view>
+            <view class="weui-cell__ft">
+                <button class="weui-vcode-btn mini-btn" size="mini" catchtap="addTagEvent">添加</button>
+            </view>
+        </view>
+        <view class="weui-panel__hd">
+            <block  wx:for="{{tags}}" wx:for-item="item" wx:key="id">
+                <button size="mini" class="btn-mr" bindtap="tagChangeRemoveEvent" data-item="{{item}}" disabled="">
+                    {{item}}
+                </button>
+            </block>
         </view>
     </view>
-    <view class="weui-cell weui-cell_vcode center">
-        <view class="weui-cell__hd">
-            <text class="weui-label">手机号码</text>
-        </view>
-        <view class="weui-cell__bd">
-            <input class="weui-input" type="tel" pattern="[0-9]*" placeholder="请输入手机号"/>
-        </view>
-        <view class="weui-cell__ft">
-            <button class="weui-vcode-btn">获取验证码</button>
-        </view>
+    <import src="../moudleTagList/moudleTagList.wxml"/>
+    <template is="moudleTagList" data="{{myTagObj}}"/> 
+    <view class="weui-btn-fixed">
+        <button type="primary" formType="submit" disabled="{{regButtonDisable}}">注册</button>
     </view>
-    <view class="weui-cell">
-        <view class="weui-cell__hd"><text class="weui-label">验证码</text></view>
-        <view class="weui-cell__bd">
-            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入验证码"/>
-        </view>
-    </view>
-</view>	
+</form>

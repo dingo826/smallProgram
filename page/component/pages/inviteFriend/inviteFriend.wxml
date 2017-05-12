@@ -1,24 +1,30 @@
 <view>
-    <view>我的邀请码：{{codeName}}</view>
+    <view class="weui-cell ">我的邀请码：{{inviteCode}}</view>
     <view>
         <image src="{{codeName}}" />
     </view>
-    <text selectable="true">http://reg.html</text>
+    <text selectable="true"></text>
    
 </view>
 <view class="weui-panel">
-	<view class="weui-panel__hd">您已邀请5位好友，只有5位名额了</view>
+	<view class="weui-panel__hd">您已有{{friendsTotal}}位好友，还有{{friendsNum}}位名额了</view>
     <view class="weui-panel__bd js_wrapper">    	
-        <navigator url="friendView.html" class="weui-media-box weui-media-box_appmsg center">
-            <view class="weui-media-box__hd">
-                <image class="weui-media-box__thumb" src="../../../../image/user.jpg" alt="" />
+        <navigator url="friendView.html" class="weui-media-box weui-media-box_appmsg center"
+            wx:for="{{friendsArr}}" wx:for-item="item" wx:key="{{id}}" >
+            <view class="weui-media-box__hd">   
+                <block wx:if="{{item.headImgUrl}}">
+                    <image class="weui-media-box__thumb" src="{{item.headImgUrl}}" />
+                </block>
+                <block wx:if="{{!item.headImgUrl}}">
+                    <image class="weui-media-box__thumb" src="../../../../image/icon64_appwx_logo.png" />
+                </block>
             </view>
             <view class="weui-media-box__bd">
                 <view class="weui-media-box__title">                     
-                    asdf 2017-08-23
+                    {{item.friendName}} {{item.createTime}}
                 </view>
-                <p class="weui-media-box__desc">
-                    所在城市：浙江杭州
+                <p class="weui-media-box__desc" wx:if="{{item.commission != 0}}">
+                    已赚取：{{item.commission}} 元
                 </p>
             </view>
         </navigator> 

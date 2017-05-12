@@ -1,0 +1,571 @@
+
+body {
+    font-size: 12px;
+    font-family: ubuntu, helvetica, arial;
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.v-hidden {
+    visibillity: hidden;
+}
+
+.hide {
+    display: none !important;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.clearfix, .swiper-slide > ul {
+    display: block;
+}
+
+.clearfix:after {
+    zoom: 1; content: " ";
+    clear: both;
+}
+
+.page, .cc-cover, .cc-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+input {
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+    text-shadow: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    -webkit-box-align: center;
+    background: transparent;
+    border: none;
+}
+
+input[type='text'] {
+    -webkit-appearance: none;
+}
+
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+textarea, select, input:focus {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.chat-scroll-wrapper {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.chat-scroller {
+    z-index: 12;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 101%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #f2f2f2;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.chat-loading-pull-down {
+    z-index: 11;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.chat-loading-pull-down.active {
+    visibility: visible;
+}
+
+.chat-loading-pull-down .img-container {
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.debug-scroller-bottom-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 185px;
+    width: 100%;
+    line-height: 30px;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #f14;
+}
+
+.chat-info-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.chat-info-item-user {
+    display: flex;
+    justify-content: flex-end;
+    /* color: red */
+}
+
+.chat-info-item-guider {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.chat-info-item-content {
+    min-width: 10%;
+    max-width: 80%;
+    min-height: 30px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-overflow: ellipsis;
+    white-space: inherit;
+    position: relative;
+}
+
+.chat-info-item-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.chat-info-item-user .chat-info-item-content {
+    background-color: #5eb2f2;
+}
+
+.chat-info-item-user .chat-info-item-content p {
+    color: #fff;
+}
+
+.chat-info-item-guider .chat-info-item-content {
+    background-color: #fff;
+}
+
+.chat-info-item-guider .chat-info-item-content p {
+    color: #000;
+}
+
+.chat-info-item-user .chat-info-item-content:after {
+    content: " ";
+    position: absolute;
+    right: -5px;
+    top: 12px;
+    background-color: #5eb2f2;
+    width: 10px;
+    height: 10px;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    z-index: 15;
+}
+
+.chat-info-item-guider .chat-info-item-content:before {
+    content: " ";
+    position: absolute;
+    left: -5px;
+    top: 12px;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    -webkit-transform: rotateZ(-45deg);
+    transform: rotateZ(-45deg);
+    z-index: 15;
+}
+
+.chat-info-item-head-img {
+    width: 40px;
+}
+
+.chat-info-item-user .chat-info-item-head-img {
+    margin-left: 10px;
+}
+
+.chat-info-item-guider .chat-info-item-head-img {
+    margin-right: 10px;
+}
+
+.chat-emoji {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+.chat-link {
+    color: #c9e8ff;
+    word-break: break-word;
+}
+
+.chat-img {
+    height: 50px;
+    display: inline-block;
+}
+
+.chat-info-time {
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.chat-info-time p {
+    text-align: center;
+    color: #666;
+}
+
+.chat-goods > .title {
+    line-height: 30px;
+    word-break: break-word;
+}
+
+.chat-goods > .content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.chat-goods > .content img {
+    max-width: 100px;
+    height: 50px;
+}
+
+.chat-goods > .content .sale-price {
+    color: #f00;
+    padding-left: 10px;
+}
+
+.chat-goods > .content .suggest-price {
+    color: #ccc;
+    padding-left: 10px;
+    text-decoration: line-through;
+}
+
+.chat-share {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.chat-share img {
+    max-width: 100px;
+    height: 50px;
+}
+
+.chat-share p {
+    padding-left: 10px;
+    line-height: 1.5;
+    color: #000;
+    font-size: 14px;
+    word-break: break;
+}
+
+.chat-full-discount p {
+    padding-left: 10px;
+    word-break: break;
+    margin-top: 5px;
+}
+
+.chat-full-discount .chat-full-discount-title {
+    font-size: 18px;
+    color: #3e3e3e !important;
+    letter-spacing: 0px;
+    line-height: 24px;
+}
+
+.chat-full-discount .chat-full-discount-time {
+    font-size: 12px;
+    color: #8d8d8d !important;
+    letter-spacing: 0px;
+    line-height: 14px;
+}
+
+.chat-full-discount .chat-full-discount-img-container {
+    margin-top: 5px;
+}
+
+.footer {
+    width: 100%;
+    z-index: 14;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    background: #f2f2f2;
+}
+
+.chat-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    height: 30px;
+    padding: 10px;
+}
+
+.chat-nav:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.chat-nav:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.chat-input {
+    width: 70%;
+    height: 100%;
+}
+
+.chat-input input {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.chat-input input:active {
+    background-color: #fff;
+}
+
+.chat-input input:focus {
+    background-color: #fff;
+    outline: none;
+}
+
+.chat-btn-container {
+    width: 30%;
+    padding-left: 10px;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.chat-btn-container > .span {
+    display: inline-block;
+    text-align: center;
+    width: 50%;
+}
+
+.chat-btn-container .img {
+    width: 30px;
+    height: 30px;
+}
+
+.chat-btn-add .em {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #33bfe8;
+}
+
+.tab-content {
+    width: 100%;
+    height: 135px;
+    position: absolute;
+    left: 0;
+    bottom: -135px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #f2f2f2;
+    z-index: 15;
+    -webkit-transition: bottom 0.5s ease-out;
+    transition: bottom 0.5s ease-out;
+}
+
+.tab-content.active {
+    bottom: 0;
+}
+
+.tab-content-item {
+    position: absolute;
+    display: none;
+    height: 135px;
+    width: 90%;
+}
+
+.tab-content-item.active {
+    display: block;
+}
+
+.tab-content-cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 10;
+}
+
+.swiper-slide {
+    height: 135px;
+}
+
+.swiper-slide > ul {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide li {
+    float: left;
+    width: 35px;
+    height: 35px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide li:active {
+    background-color: #333;
+}
+
+.swiper-slide img {
+    width: 25px;
+    height: 25px;
+}
+
+.wx-func-container li.wx-pick-img {
+    padding-top: 10px;
+}
+
+.wx-func-container li.wx-pick-img img {
+    width: 60px;
+}
+.wx-func-container li p {
+    width: 60px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+}
+
+.cc-cover {
+    z-index: 20;
+    background-color: #000;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+.cc-cover.active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+.cc-modal {
+    z-index: 21;
+    bottom: 10%;
+    top: 10%;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.cc-modal.active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+.cc-modal .img {
+    width: 100%;
+    height: auto;
+}

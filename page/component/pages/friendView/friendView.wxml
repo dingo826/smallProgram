@@ -1,0 +1,57 @@
+<view class="weui-panel"   >
+<form catchsubmit="formSubmit" catchreset="formReset">  
+    <view class="weui-panel">
+	    <view class="weui-panel__bd">
+	        <view href="info.html" class="weui-media-box weui-media-box_appmsg">
+	            <view class="weui-media-box__hd">
+	            <block wx:if="{{dataIfo.headImgUrl}}">
+	                <image class="weui-media-box__thumb" src="{{dataIfo.headImgUrl}}" />
+	            </block>
+	            <block wx:if="{{!dataIfo.headImgUrl}}">
+	                <image class="weui-media-box__thumb" src="../../../../image/icon64_appwx_logo.png" />
+	            </block>
+	            </view>
+	            <view class="weui-media-box__bd">
+	                <view class="weui-media-box__title"> 
+	                	{{dataIfo.friendName}}
+	        		</view>		
+	        		<view class="weui-media-box__title"> 
+	                	所在城市：{{dataIfo.location}}
+	        		</view>	
+	            </view>
+	        </view>        
+	    </view>
+	</view>
+
+	
+        <view>  
+        	<view class="weui-cells weui-cells_form kind-list"> 
+                <view class="kind-list-item"> 
+                    <view class="kind-list-item-hd">
+                        <view class="kind-list-text">外号</view>
+                        <view class="kind-list-bd">
+                            <input class="weui-input" type="text" maxlength="14" placeholder="请输入外号" name="title" value="{{dataIfo.remark}}"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="kind-list-item"> 
+                    <view class="kind-list-item-hd">
+                        <view class="kind-list-text">分类</view>
+                        <view class="kind-list-bd">
+                            <picker bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}" name="category">
+                                <view class="weui-input">{{array[index]}}</view>
+                            </picker>
+                        </view>
+                    </view>
+                </view> 
+            </view> 
+                
+                      
+        </view>
+        <view class="weui-cell-block">
+            <button type="primary" formType="submit">保存</button>
+            <button type="warn" bindtap="deleteFn">删除</button>
+        </view>
+    </form>
+  
+</view>

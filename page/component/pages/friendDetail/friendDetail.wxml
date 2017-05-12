@@ -1,0 +1,7 @@
+<view class=" weui-panel weui-media-box">
+	大家对他的印象是：        
+</view>
+<import src="../moudleTagAdd/moudleTagAdd.wxml"/>
+<template is="moudleTagAdd" data="{{myTagObj}}"/> 
+<import src="../moudleTagList/moudleTagList.wxml"/>
+<template is="moudleTagList" data="{{myTagObj}}"/>

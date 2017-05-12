@@ -1,0 +1,12 @@
+<template name="moudleTagList">	
+	<view class="weui-panel">
+	    <view class="weui-panel__hd">提供给您参考的标签</view>
+	    <view class="weui-panel__hd">
+	        <block  wx:for="{{myTagObj.tagArr}}" wx:for-item="item" wx:key="id">
+	            <button size="minix" class="btn-mr" bindtap="tagChangeEvent" data-item="{{item}}" disabled="">
+	                {{item}}
+	            </button>
+	        </block>
+	    </view>
+	</view>
+</template>

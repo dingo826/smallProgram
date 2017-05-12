@@ -1,0 +1,27 @@
+<form catchsubmit="formSubmit" catchreset="formReset">  
+<view class="weui-cell__bd weui-cells">
+    <view class="weui-uploader weui-media-box">
+        <view class="weui-uploader__hd">
+            <view class="weui-uploader__title">提交收款码</view>
+        </view>
+        <view class="weui-uploader__bd">
+            <view class="weui-uploader__files">
+                <view class="weui-uploader__file" wx:if="{{imageList != null}}">
+                    <image class="weui-uploader__img" src="{{imageList}}" data-src="{{imageList}}" bindtap="previewImage" name="attachment"></image>
+                </view>
+            </view>
+            <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weui-panel__ft btn__ft center">    
+    <navigator url="../info/info" class="navigator-btn">
+        <button  class="mini-btn">暂不上传</button>
+    </navigator> 
+    <view  class="navigator-btn">
+        <button type="primary" formType="submit" class="mini-btn">提交</button>
+    </view>  
+</view>
+</form>

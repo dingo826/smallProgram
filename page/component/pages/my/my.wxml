@@ -1,47 +1,54 @@
 <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_small-appmsg">
         <view class="weui-cells">
-            <view href="info.html" class="weui-media-box weui-media-box_appmsg center"> 
-                <navigator url="../reg/reg" hover-class="navigator-hover">会员注册</navigator>              
-                <block wx:if="{{hasUserInfo === false}}">
-                    <navigator url="../reg/reg" hover-class="navigator-hover">会员注册</navigator>
+            <view href="info.html" class="weui-media-box weui-media-box_appmsg center">             
+                <block wx:if="{{isRegister === false}}">
+                    <navigator url="../reg/reg" hover-class="navigator-hover">
+                        <button type="primary" formType="submit">会员注册</button>
+                    </navigator>
 		        </block>
-		        <block wx:if="{{hasUserInfo === true}}">
+		        <block wx:if="{{isRegister === true}}">
                     <view class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+                        <image class="weui-media-box__thumb" src="{{user.headImgUrl}}" />
                     </view>
                     <view class="weui-media-box__bd">
-                        <view class="weui-media-box__title">{{userInfo.nickName}}</view>
-                        <view class="weui-media-box__desc">初级会员</view>
+                        <view class="weui-media-box__title">{{user.userName}}</view>
                     </view>
 		        </block>
             </view>
         </view>
     </view>
 </view>
-<view class="weui-panel__bd">
+
+<view class="weui-panel__bd" wx:if="{{isRegister === true}}">
     <view class="weui-media-box weui-media-box_small-appmsg">
         <view class="weui-cells">
-            <view class="weui-cell weui-cell_access" href="info.html">
+            <navigator url="../info/info" class="weui-cell weui-cell_access" >
                 <view class="weui-cell__bd weui-cell_primary">我的信息</view>
                 <view class="weui-cell__ft"></view>
-            </view>
-            <view class="weui-cell weui-cell_access" href="myTag.html">
+            </navigator>
+            <navigator url="../myTag/myTag" class="weui-cell weui-cell_access" >
                 <view class="weui-cell__bd weui-cell_primary">我的标签</view>
                 <view class="weui-cell__ft"></view>
-            </view>
-            <view class="weui-cell weui-cell_access" href="publishList.html">
-                <view class="weui-cell__bd weui-cell_primary">我的足迹</view>
+            </navigator>
+            <navigator url="../friendsList/friendsList" class="weui-cell weui-cell_access" >
+                <view class="weui-cell__bd weui-cell_primary">我的好友</view>
                 <view class="weui-cell__ft"></view>
-            </view>
-            <view class="weui-cell weui-cell_access" href="realRecommendList.html">
-                <view class="weui-cell__bd weui-cell_primary">我的实时</view>
+            </navigator>  
+            <navigator url="../publishList/publishList" class="weui-cell weui-cell_access" >
+                <view class="weui-cell__bd weui-cell_primary">我的发布</view>
                 <view class="weui-cell__ft"></view>
-            </view>
-            <navigator url="../inviteFriend/inviteFriend" class="weui-cell weui-cell_access" href="inviteFriend.html">
+            </navigator>          
+            <navigator url="../recommendList/recommendList" class="weui-cell weui-cell_access" >
+                <view class="weui-cell__bd weui-cell_primary">推荐管理</view>
+                <view class="weui-cell__ft"></view>
+            </navigator>
+            
+            <navigator url="../inviteFriend/inviteFriend" class="weui-cell weui-cell_access" >
                 <view class="weui-cell__bd weui-cell_primary">我的邀请</view>
                 <view class="weui-cell__ft"></view>
             </navigator>
+            
         </view>            
     </view>
 </view>
@@ -56,4 +63,4 @@
             </view>
         </view>
     </view>
-</view>
+</view> 

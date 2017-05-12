@@ -1,0 +1,46 @@
+<view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+            <view class="weui-cells">
+                <view class="weui-cell weui-cell_access center" href="javascript:;">
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <p>头像</p>
+                    </view>
+                    <view class="weui-cell__aft mr25"><image class="weui-media-box__thumb image" src="{{info.headImgUrl}}" alt=""></image></view>
+                </view>
+                <view class="weui-cell weui-cell_access" href="javascript:;">
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <p>姓名</p>
+                    </view>
+                    <view class="weui-cell__aft mr25">{{info.userName}}</view>
+                </view>
+                <view class="weui-cell weui-cell_access" href="javascript:;">
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <p>性别</p>
+                    </view>
+                    <view class="weui-cell__aft mr25">
+                        <block wx:if="{{info.sex == 0}}">未知</block>
+                        <block wx:if="{{info.sex == 1}}">男</block>
+                        <block wx:if="{{info.sex == 2}}">女</block>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_access" href="javascript:;">
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <p>手机号</p>
+                    </view>
+                    <view class="weui-cell__aft mr25">{{info.phoneNumber}}</view>
+                </view>
+                <view class="weui-cell weui-cell_access" href="javascript:;">
+                    <view class="weui-cell__bd weui-cell_primary">
+                        <p>所在城市</p>
+                    </view>
+                    <view class="weui-cell__aft mr25">{{info.location}}</view>
+                </view>
+                <navigator url="../uploadPic/uploadPic" class="weui-cell weui-cell_access">
+                    <view class="weui-cell__bd weui-cell_primary">我的微信支付码</view>
+                    <view class="weui-cell__ft"></view>
+                </navigator>
+            </view>            
+        </view>
+    </view>
+</view>

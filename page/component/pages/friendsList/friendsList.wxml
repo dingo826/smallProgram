@@ -1,0 +1,52 @@
+<view class="container">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" 
+        class="list" bindscrolltolower="bindDownLoad">
+        <view class="weui-panel"  wx:for="{{list}}" wx:for-item="item" wx:key="{{id}}" >
+            <view class="weui-panel">
+			    <view class="weui-panel__bd">
+			        <view href="info.html" class="weui-media-box weui-media-box_appmsg">
+			            <view class="weui-media-box__hd">
+			            <block wx:if="{{item.headImgUrl}}">
+			                <image class="weui-media-box__thumb" src="{{item.headImgUrl}}" />
+			            </block>
+			            <block wx:if="{{!item.headImgUrl}}">
+			                <image class="weui-media-box__thumb" src="../../../../image/icon64_appwx_logo.png" />
+			            </block>
+			            </view>
+			            <view class="weui-media-box__bd">
+			                <view class="weui-media-box__title"> 
+			                	{{item.friendName}}
+			        			<view wx:if="{{item.commission != 0}}">已赚取{{item.commission}}元</view>
+			        		</view>		
+			        		<navigator url="../friendView/friendView?id={{item.friendId}}">
+				                <button type="primary" formType="submit" size="minix">好友详情</button>
+				            </navigator>	                
+					        <navigator url="../friendDetail/friendDetail?id={{item.friendId}}">
+				                <button type="primary" formType="submit" size="minix">给好友贴标签</button>
+				            </navigator>
+					         
+			            </view>
+			        </view>        
+			    </view>
+			    <view class="weui-panel__ft weui-media-box" wx:if="{{item.impressions.length != 0 || item.tags.length != 0}}">
+                	<block  wx:for="{{item.impressions}}" wx:for-item="item" wx:key="id">
+                	    <button size="minix" class="btn-mr"  >
+                	        {{item.impressionName}}
+                	    </button>
+                	</block>
+                	<block  wx:for="{{item.tags}}" wx:for-item="item" wx:key="id">
+                	    <button size="minix" class="btn-mr"  >
+                	        {{item}}
+                	    </button>
+                	</block>
+			        
+			    </view>
+			</view>
+        </view>
+    </scroll-view>
+    <view class="body-view">
+        <loading hidden="{{hidden}}" bindchange="loadingChange">
+            加载中...
+        </loading>
+    </view>
+</view>
